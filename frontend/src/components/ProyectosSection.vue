@@ -65,7 +65,7 @@ const proyectos = [
     descripcion: 'SPA para el seguimiento de gastos personales. Sube extractos CSV, clasifica movimientos por categorías y visualiza KPIs y gráficos mensuales. Infraestructura serverless en AWS con Cognito, Lambda, API Gateway y S3',
     tags: ['Vue 3', 'AWS Cognito', 'Lambda', 'API Gateway', 'S3', 'CloudFront', 'GitHub Actions'],
     link: 'https://github.com/PauGarcia12/App-Gastos',
-    imagen: ''
+    imagen: '/projects/diagrama-app-gastos.jpg'
   }
 ]
 </script>
