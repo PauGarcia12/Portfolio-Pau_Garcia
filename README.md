@@ -81,8 +81,4 @@ aws cloudfront create-invalidation \
 
 Portfolio personal desarrollado mientras finalizo el **Grado Superior en DAM**, con el que empiezo a explorar el ecosistema **AWS, DevOps y Cloud Engineering**. Este proyecto es mi primer paso práctico en infraestructura cloud real.
 
----
 
-## 📄 Licencia
-
-MIT — siéntete libre de tomar ideas e inspiración.
