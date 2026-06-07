@@ -59,6 +59,13 @@ const proyectos = [
     tags: ['S3', 'CloudFront', 'Route 53', 'ACM', 'GitHub Actions'],
     link: 'https://github.com/PauGarcia77/Portfolio-aws',
     imagen: '/projects/portfolio-aws-architecture.png'
+  },
+  {
+    titulo: 'App Gastos',
+    descripcion: 'SPA para el seguimiento de gastos personales. Sube extractos CSV, clasifica movimientos por categorías y visualiza KPIs y gráficos mensuales. Infraestructura serverless en AWS con Cognito, Lambda, API Gateway y S3.',
+    tags: ['Vue 3', 'AWS Cognito', 'Lambda', 'API Gateway', 'S3', 'CloudFront', 'GitHub Actions'],
+    link: 'https://github.com/PauGarcia12/App-Gastos',
+    imagen: ''
   }
 ]
 </script>
