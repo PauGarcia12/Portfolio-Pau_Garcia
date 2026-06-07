@@ -37,9 +37,9 @@
 <script setup>
 const certificaciones = [
   {
-    nombre: 'AWS Cloud Practitioner',
+    nombre: 'AWS Solutions Architect Associate',
     emisor: 'Amazon Web Services',
-    imagen: '/projects/aws-cloud-practitioner.png'
+    imagen: '/projects/aws-solutions-architect-associate.png'
   }
 ]
 </script>
