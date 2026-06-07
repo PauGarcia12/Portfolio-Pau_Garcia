@@ -4,7 +4,7 @@
       <div class="mb-12">
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Logros</p>
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mt-2">
-          Certificaciones<span class="text-gradient">.</span>
+          Certificaciones <span class="text-gradient">.</span>
         </h2>
         <div class="mt-4 h-px w-24 bg-gradient-to-r from-black/60 to-transparent"></div>
       </div>
