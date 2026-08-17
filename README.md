@@ -1,84 +1,103 @@
-# 🌐 Portfolio Personal
+# Personal Portfolio — Pau García
 
-> Web estática desplegada con S3, CloudFront, ACM y Route 53. CI/CD con GitHub Actions.
+> Static portfolio deployed on AWS with automated CI/CD. Built with Vue 3 and Tailwind CSS.
 
 ---
 
-## 🚀 Stack & Infraestructura
+## Stack & Infrastructure
 
-| Servicio | Uso |
+| Service | Purpose |
 |---|---|
-| **AWS S3** | Almacenamiento y hosting de la web estática |
-| **AWS CloudFront** | CDN y distribución global del contenido |
-| **AWS ACM** | Certificado SSL/TLS (HTTPS) |
-| **AWS Route 53** | Gestión del dominio y DNS |
-| **GitHub Actions** | CI/CD — deploy automático en cada push |
+| **AWS S3** | Static file storage and website hosting |
+| **AWS CloudFront** | CDN — global content distribution and caching |
+| **AWS ACM** | SSL/TLS certificate (HTTPS) |
+| **AWS Route 53** | DNS management and custom domain |
+| **GitHub Actions** | CI/CD — automated deploy on every push to `main` |
+| **Vue 3 + Vite** | Frontend framework |
+| **Tailwind CSS** | Styling |
 
 ---
 
-## 🏗️ Arquitectura
+## Architecture
 
 ```
-Usuario
-   │
-   ▼
-Route 53 (DNS)
-   │
-   ▼
+User
+ │
+ ▼
+Route 53 (DNS resolution)
+ │
+ ▼
 CloudFront (CDN + HTTPS via ACM)
-   │
-   ▼
-S3 Bucket (contenido estático)
+ │
+ ▼
+S3 Bucket (static content)
 ```
 
 ---
 
-## ⚙️ CI/CD
+## CI/CD Pipeline
 
-Cada push a `main` lanza automáticamente un workflow de GitHub Actions que sincroniza los archivos con el bucket de S3 e invalida la caché de CloudFront.
+Every push to `main` automatically triggers a GitHub Actions workflow, no manual intervention needed.
 
-```yaml
-# .github/workflows/deploy.yml
-- Sync a S3
-- Invalidate CloudFront distribution
 ```
+Push to main
+     │
+     ▼
+GitHub Actions
+     ├── Build Vue app (npm run build)
+     ├── Sync /dist → S3 bucket
+     └── Invalidate CloudFront cache
+```
+
+Secrets like AWS credentials and bucket names are stored as **GitHub Secrets** — never hardcoded in the repository.
 
 ---
 
-## 📁 Estructura del proyecto
+## Project Structure
 
 ```
 portfolio/
-├── index.html
-├── assets/
-│   ├── css/
-│   ├── js/
-│   └── img/
-└── .github/
-    └── workflows/
-        └── deploy.yml
+├── src/
+│   ├── components/
+│   │   ├── HeroSection.vue
+│   │   ├── ProyectosSection.vue
+│   │   ├── CertificacionesSection.vue
+│   │   ├── EducacionSection.vue
+│   │   └── ContactoSection.vue
+│   └── App.vue
+├── public/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── vite.config.js
+└── tailwind.config.js
 ```
 
 ---
 
-## 🛠️ Deploy manual
+## Manual Deploy
 
-Si quieres desplegar manualmente:
+If you want to deploy manually without the CI/CD pipeline:
 
 ```bash
-# Subir archivos a S3
-aws s3 sync . s3://TU-BUCKET --delete
+# Build the project
+npm run build
 
-# Invalidar caché de CloudFront
+# Sync to S3
+aws s3 sync ./dist s3://YOUR-BUCKET-NAME --delete
+
+# Invalidate CloudFront cache
 aws cloudfront create-invalidation \
-  --distribution-id TU-DISTRIBUTION-ID \
+  --distribution-id YOUR-DISTRIBUTION-ID \
   --paths "/*"
 ```
 
 ---
 
-## 📌 Sobre este proyecto
+## About
 
-Portfolio personal desarrollado mientras finalizo el **Grado Superior en DAM**, con el que empiezo a explorar el ecosistema **AWS, DevOps y Cloud Engineering**. Este proyecto es mi primer paso práctico en infraestructura cloud real.
+Personal portfolio built while finishing my **Higher Degree in Multiplatform Application Development (DAM)** — my first hands-on step into real cloud infrastructure.
 
+The goal was to go beyond just hosting a website and learn how production-grade AWS deployments actually work: custom domains, HTTPS certificates, CDN caching, and fully automated pipelines.
 
+Currently preparing for the **AWS Solutions Architect Associate** certification.
