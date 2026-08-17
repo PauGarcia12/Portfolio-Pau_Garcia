@@ -3,8 +3,8 @@
     <div class="max-w-5xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center gap-10">
         <div class="flex-shrink-0">
-          <div class="w-28 h-28 md:w-32 md:h-32 rounded-full bg-neutral-100 border border-black/10 flex items-center justify-center">
-            <span class="text-3xl font-semibold text-neutral-900">PG</span>
+          <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-black/10 bg-neutral-100">
+            <img src="/pau.jpg" alt="Pau García" class="w-full h-full object-cover" />
           </div>
         </div>
 
