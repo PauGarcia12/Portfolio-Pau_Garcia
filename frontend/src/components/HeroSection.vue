@@ -13,10 +13,10 @@
             Hola, soy Pau García
           </h1>
           <p class="text-neutral-600 mt-3 text-lg font-medium">
-            Cloud Engineer · DevSecOps · AWS
+            Desarrollador de Software | Formándome en Cloud (AWS)
           </p>
           <p class="text-neutral-600 mt-4 max-w-xl text-sm md:text-base leading-relaxed">
-            Apasionado del desarrollo de software, terminando mi FP Superior en DAM y adentrándome en el mundo cloud.
+            Apasionado del desarrollo de software, tras finalizar mi FP Superior en DAM y adentrándome en el mundo cloud.
             Aprendiendo AWS, DevOps y todo lo que rodea a la ingeniería en la nube con ganas de crecer y construir cosas que escalen.
           </p>
           <div class="flex gap-2 mt-5 flex-wrap justify-center md:justify-start">
