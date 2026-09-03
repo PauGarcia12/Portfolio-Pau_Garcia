@@ -2,8 +2,8 @@
   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-black/10">
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
       <a href="#hero" class="flex items-center gap-2.5">
-        <span class="inline-block h-9 w-9 rounded-full overflow-hidden border border-black/10 bg-neutral-100">
-          <img src="/pau.jpg" alt="Pau García" class="w-full h-full object-cover object-top" />
+        <span class="inline-flex items-center justify-center h-9 w-9 rounded-full border border-black/10 bg-neutral-900 text-white text-xs font-semibold">
+          PG
         </span>
         <span class="font-semibold tracking-tight text-neutral-900">Pau Garcia</span>
       </a>
