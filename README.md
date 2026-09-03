@@ -1,59 +1,59 @@
-# Personal Portfolio — Pau García
+# Portfolio Personal — Pau García
 
-> Static portfolio deployed on AWS with automated CI/CD. Built with Vue 3 and Tailwind CSS.
+> Portfolio estático desplegado en AWS con CI/CD automatizado. Desarrollado con Vue 3 y Tailwind CSS.
 
 ---
 
-## Stack & Infrastructure
+## Stack e Infraestructura
 
-| Service | Purpose |
+| Servicio | Uso |
 |---|---|
-| **AWS S3** | Static file storage and website hosting |
-| **AWS CloudFront** | CDN — global content distribution and caching |
-| **AWS ACM** | SSL/TLS certificate (HTTPS) |
-| **AWS Route 53** | DNS management and custom domain |
-| **GitHub Actions** | CI/CD — automated deploy on every push to `main` |
-| **Vue 3 + Vite** | Frontend framework |
-| **Tailwind CSS** | Styling |
+| **AWS S3** | Almacenamiento de archivos estáticos y hosting web |
+| **AWS CloudFront** | CDN — distribución global de contenido y caché |
+| **AWS ACM** | Certificado SSL/TLS (HTTPS) |
+| **AWS Route 53** | Gestión del DNS y dominio personalizado |
+| **GitHub Actions** | CI/CD — deploy automático en cada push a `main` |
+| **Vue 3 + Vite** | Framework frontend |
+| **Tailwind CSS** | Estilos |
 
 ---
 
-## Architecture
+## Arquitectura
 
 ```
-User
+Usuario
  │
  ▼
-Route 53 (DNS resolution)
+Route 53 (resolución DNS)
  │
  ▼
 CloudFront (CDN + HTTPS via ACM)
  │
  ▼
-S3 Bucket (static content)
+S3 Bucket (contenido estático)
 ```
 
 ---
 
-## CI/CD Pipeline
+## Pipeline CI/CD
 
-Every push to `main` automatically triggers a GitHub Actions workflow, no manual intervention needed.
+Cada push a `main` lanza automáticamente un workflow de GitHub Actions, sin ninguna intervención manual.
 
 ```
-Push to main
+Push a main
      │
      ▼
 GitHub Actions
-     ├── Build Vue app (npm run build)
-     ├── Sync /dist → S3 bucket
-     └── Invalidate CloudFront cache
+     ├── Build de la app Vue (npm run build)
+     ├── Sync /dist → bucket S3
+     └── Invalidación de caché en CloudFront
 ```
 
-Secrets like AWS credentials and bucket names are stored as **GitHub Secrets** — never hardcoded in the repository.
+Las credenciales de AWS y los nombres de los buckets se almacenan como **GitHub Secrets** — nunca hardcodeados en el repositorio.
 
 ---
 
-## Project Structure
+## Estructura del proyecto
 
 ```
 portfolio/
@@ -75,29 +75,29 @@ portfolio/
 
 ---
 
-## Manual Deploy
+## Deploy manual
 
-If you want to deploy manually without the CI/CD pipeline:
+Si quieres desplegar manualmente sin el pipeline de CI/CD:
 
 ```bash
-# Build the project
+# Build del proyecto
 npm run build
 
-# Sync to S3
-aws s3 sync ./dist s3://YOUR-BUCKET-NAME --delete
+# Sync a S3
+aws s3 sync ./dist s3://TU-BUCKET --delete
 
-# Invalidate CloudFront cache
+# Invalidar caché de CloudFront
 aws cloudfront create-invalidation \
-  --distribution-id YOUR-DISTRIBUTION-ID \
+  --distribution-id TU-DISTRIBUTION-ID \
   --paths "/*"
 ```
 
 ---
 
-## About
+## Sobre este proyecto
 
-Personal portfolio built while finishing my **Higher Degree in Multiplatform Application Development (DAM)** — my first hands-on step into real cloud infrastructure.
+Portfolio personal desarrollado tras finalizar el **Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)**. Mi primer paso práctico en infraestructura cloud real.
 
-The goal was to go beyond just hosting a website and learn how production-grade AWS deployments actually work: custom domains, HTTPS certificates, CDN caching, and fully automated pipelines.
+El objetivo era ir más allá de simplemente alojar una web y aprender cómo funcionan de verdad los despliegues en AWS a nivel de producción: dominios personalizados, certificados HTTPS, caché en CDN y pipelines totalmente automatizados.
 
-Currently preparing for the **AWS Solutions Architect Associate** certification.
+Actualmente en búsqueda de mi primera oportunidad laboral en el área de **Cloud Engineering / DevOps**, y preparando la certificación **AWS Solutions Architect Associate**.
